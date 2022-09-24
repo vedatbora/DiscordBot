@@ -5,8 +5,10 @@ import discord
 from discord.ext import commands
 import string
 import random
+import os
+import sys
+import dotenv
 
-TOKEN = ('MTAxODE2ODc3NTIzMDYyMzg0NQ.GALrIR.r-vh6BLT3rEfnyBIAnwjFs3EUtkUKeteV6lKFo')
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -52,13 +54,6 @@ async def sifre(ctx, *args):
     await ctx.send(password)
 
 
-
-@bot.command(pass_context=True)
-async def volkan(ctx):
-    channel= bot.get_channel(1018213804074602566)
-    await channel.send('VIZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ')
-
-
 #@bot.command()
 #async def gosu(ctx, *args):
 #   await ctx.send(" ".join(args))
@@ -71,13 +66,6 @@ async def gosu(ctx, *args):
     embed=discord.Embed(title=userData[1], url=userData[2], description=userData[0],  color=discord.Color.green())
     await ctx.send(embed=embed)
         
-    
-@bot.command()
-async def hamza(ctx):
-    await ctx.send("Arkadaşlar ejder ejder ejdeeeeeeeeeeeeeeeeeeeer!!!!!!!!!!!!")
-    
 
     
-
-    
-bot.run(TOKEN)
+bot.run(os.getenv('TOKEN'))
